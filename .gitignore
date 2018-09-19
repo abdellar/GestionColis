@@ -1,0 +1,19 @@
+# ignore eclipse conf
+.settings/
+.project
+.classpath
+
+# ignore gradle files
+.gradle
+gradle/
+gradlew
+gradlew.bat
+
+# ignore intellij
+*.iml
+.idea/
+
+# build artefacts
+out/
+bin/
+build/
