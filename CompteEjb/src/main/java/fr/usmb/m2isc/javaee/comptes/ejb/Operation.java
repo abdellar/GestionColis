@@ -10,4 +10,6 @@ public interface Operation {
 
 	Compte crediter(String number, double val);
 
+	Compte debiter(String number, double val);
+
 }

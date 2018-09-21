@@ -18,11 +18,16 @@
 		numéro : <input type="text" name="numero">
 		<input type="submit" value="valider">
 	</form>
-	<h2>Créditer un compte :</h2>
+	<h2>Créditer ou débiter un compte :</h2>
 	<form action="CrediterCompteServlet" method="post">
 		numéro : <input type="text" name="numero">
-		dépot : <input type="number" name ="depot">
+		somme : <input type="number" name ="depot">
 		<input type="submit" value="crediter">
+	</form>
+	<form action="DebiterCompteServlet" method="post">
+		numéro : <input type="text" name="numero">
+		somme : <input type="number" name ="retrait">
+		<input type="submit" value="débiter">
 	</form>
 </body>
 </html>

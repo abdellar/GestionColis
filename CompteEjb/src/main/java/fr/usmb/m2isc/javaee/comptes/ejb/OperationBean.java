@@ -37,4 +37,12 @@ public class OperationBean implements Operation {
 		if (val < 0 ) throw new EJBException("depot negatif");
 		return cpt;
 	}
+
+	@Override
+	public Compte debiter(String number, double val) {
+		Compte cpt = em.find(Compte.class, number);
+		cpt.setSolde(cpt.getSolde() - val);
+		if (val < 0 ) throw new EJBException("retrait negatif");
+		return cpt;
+	}
 }
