@@ -12,4 +12,6 @@ public interface Operation {
 
 	Compte debiter(String number, double val);
 
+	void transferer(String numCpt1, double val, String numCpt2);
+
 }

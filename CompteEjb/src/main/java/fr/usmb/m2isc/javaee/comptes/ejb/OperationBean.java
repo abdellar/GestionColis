@@ -45,4 +45,11 @@ public class OperationBean implements Operation {
 		if (val < 0 ) throw new EJBException("retrait negatif");
 		return cpt;
 	}
+
+	@Override
+	public void transferer(String numCpt1, double val, String numCpt2) {
+		crediter(numCpt2, val);
+		debiter(numCpt1, val);
+		if (val < 0 ) throw new EJBException("retrait negatif");
+	}
 }

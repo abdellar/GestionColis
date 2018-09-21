@@ -29,5 +29,12 @@
 		somme : <input type="number" name ="retrait">
 		<input type="submit" value="débiter">
 	</form>
+	<h2>Effectuer un transfert :</h2>
+	<form method="post"  action="TransfererServlet">
+		de : <input type="text" name="compte1" >
+		vers : <input type="text" name="compte2" >
+		valeur : <input type="text" name="somme" >
+		<input type="submit" value="transférer" >
+	</form>
 </body>
 </html>
