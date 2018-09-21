@@ -1,10 +1,13 @@
 package fr.usmb.m2isc.javaee.comptes.ejb;
 
+import java.util.List;
+
 import javax.ejb.EJBException;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import fr.usmb.m2isc.javaee.comptes.jpa.Compte;
 
@@ -28,6 +31,19 @@ public class OperationBean implements Operation {
 	@Override
 	public Compte getCompte(String number) {
 		return em.find(Compte.class, number);
+	}
+
+	@Override
+	public List<Compte> findAllComptes() {
+		Query req = em.createNamedQuery("all");
+		return req.getResultList();
+	}
+
+	@Override
+	public List<Compte> findComptes(String partialNumber) {
+		Query req = em.createNamedQuery("findWithNum");
+		req.setParameter("partialNum", partialNumber);
+		return req.getResultList();
 	}
 
 	@Override
