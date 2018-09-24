@@ -45,13 +45,13 @@ public class OperationBean implements Operation {
 
 ## L'application WEB est dans un fichier d'archive war :
 
-Ce client WEB permet de réaliser l'ensemble des opérations sur les comptes : création, débit, crédit ou transfert, visualisation.
+Ce client WEB permet de réaliser l'ensemble des opérations sur les comptes : création, débit, crédit, transfert, recherche ou visualisation.
 
 Ce client comporte des pages jsp et des servlet. La connexion au bean session se fait à l'aide de l'interface distante de l'EJB. 
 On utilise les _servlet_ pour traiter les requêtes et les _pages JSP_ pour l'affichage du résultat.
 <pre>
 CompteWeb.war
-  |-- <a href="CompteWeb/src/main/webapp/index.html" >index.html</a> (page d'accueil -- formulaires html permettant de créer, visualiser ou modifier les comptes)
+  |-- <a href="CompteWeb/src/main/webapp/index.html" >index.html</a> (page d'accueil -- formulaires html permettant de créer, rechercher ou modifier les comptes)
   |-- <a href="CompteWeb/src/main/webapp/AfficherCompte.jsp" >AfficherCompte.jsp</a> (page jsp pour afficher un compte)
   |-- <a href="CompteWeb/src/main/webapp/AfficherCompte.jsp" >AfficherComptes.jsp</a> (page jsp pour afficher plusieurs comptes)
   |-- <a href="CompteWeb/src/main/webapp/META-INF/MANIFEST.MF" >META-INF/MANIFEST.MF</a> (java manifeste)
