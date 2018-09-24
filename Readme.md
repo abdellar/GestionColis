@@ -6,14 +6,15 @@ Un compte est identifié par un numéro (alphanumérique) et le montant du compt
 
 On peut :
 - créer des comptes,
-- créditer un compte.
+- débiter ou créditer un compte et
+- transférer de l'argent d'un compte vers un autre.
 
 Les comptes sont stockés dans une base de données. Une entité (JPA) permet d'y accéder (cf. partie EJBs).
 
 Un EJB session sans état (stateless) sert de façade pour les opérations bancaires.
 
-Un client WEB permet de réaliser l'ensemble des opérations sur les comptes : création, crédit ou visualisation (cf. client Web).
-Ce client comporte une page jsp et trois servlet. La connexion au bean session se fait à l'aide de l'interfaces distante de l'EJB.
+Un client WEB permet de réaliser l'ensemble des opérations sur les comptes : création, débit, crédit, transfert, visualisation ou recherche (cf. client Web). 
+Ce client comporte deux page jsp et plusieurs servlet (1 par opération). La connexion au bean session se fait à l'aide de son interface distante.
 
 ## Partie EJB
 
@@ -44,7 +45,7 @@ public class OperationBean implements Operation {
 
 ## L'application WEB est dans un fichier d'archive war :
 
-Ce client WEB permet de réaliser l'ensemble des opérations sur les comptes : création, crédit ou visualisation.
+Ce client WEB permet de réaliser l'ensemble des opérations sur les comptes : création, débit, crédit ou transfert, visualisation.
 
 Ce client comporte des pages jsp et des servlet. La connexion au bean session se fait à l'aide de l'interface distante de l'EJB. 
 On utilise les _servlet_ pour traiter les requêtes et les _pages JSP_ pour l'affichage du résultat.
@@ -52,10 +53,14 @@ On utilise les _servlet_ pour traiter les requêtes et les _pages JSP_ pour l'af
 CompteWeb.war
   |-- <a href="CompteWeb/src/main/webapp/index.html" >index.html</a> (page d'accueil -- formulaires html permettant de créer, visualiser ou modifier les comptes)
   |-- <a href="CompteWeb/src/main/webapp/AfficherCompte.jsp" >AfficherCompte.jsp</a> (page jsp pour afficher un compte)
+  |-- <a href="CompteWeb/src/main/webapp/AfficherCompte.jsp" >AfficherComptes.jsp</a> (page jsp pour afficher plusieurs comptes)
   |-- <a href="CompteWeb/src/main/webapp/META-INF/MANIFEST.MF" >META-INF/MANIFEST.MF</a> (java manifeste)
   |-- WEB-INF/classes (classes java pour les servlets :
                 |-- <a href="CompteWeb/src/main/java/fr/usmb/m2isc/javaee/comptes/web/CreerCompteServlet.java" >fr/usmb/m2isc/javaee/comptes/web/CreerCompteServlet.class</a>
                 |-- <a href="CompteWeb/src/main/java/fr/usmb/m2isc/javaee/comptes/web/CrediterCompteServlet.java" >fr/usmb/m2isc/javaee/comptes/web/CrediterCompteServlet.class</a>
+                |-- <a href="CompteWeb/src/main/java/fr/usmb/m2isc/javaee/comptes/web/DebiterCompteServlet.java" >fr/usmb/m2isc/javaee/comptes/web/DebiterCompteServlet.class</a>
+                |-- <a href="CompteWeb/src/main/java/fr/usmb/m2isc/javaee/comptes/web/TransfererServlet.java" >fr/usmb/m2isc/javaee/comptes/web/TransfererServlet.class</a>
+                |-- <a href="CompteWeb/src/main/java/fr/usmb/m2isc/javaee/comptes/web/ChercherComptesServlet.java" >fr/usmb/m2isc/javaee/comptes/web/ChercherComptesServlet.java.class</a>
                 |-- <a href="CompteWeb/src/main/java/fr/usmb/m2isc/javaee/comptes/web/AfficherCompteServlet.java" >fr/usmb/m2isc/javaee/comptes/web/AfficherCompteServlet.java.class</a>
   |-- WEB-INF/lib (librairies java utilisées dans les servlet)
   |-- <a href="CompteWeb/src/main/webapp/WEB-INF/web.xml" >WEB-INF/web.xml</a> (descripteur standard de l'application Web -- optionnnel dans les dernières versions de javaEE)
