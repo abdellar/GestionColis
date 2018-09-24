@@ -18,16 +18,16 @@ Ce client comporte deux page jsp et plusieurs servlet (1 par opération). La con
 
 ## Partie EJB
 
-L'object persistant, Compte, ainsi que l'EJB session et son interface sont regroupés ensembles dans la même archive.
+L'objet persistant, Compte, ainsi que l'EJB session et son interface sont regroupés ensembles dans la même archive.
 <pre>
 CompteEjb.jar (ejb-jar)
   |-- <a href="CompteEjb/src/main/java/fr/usmb/m2isc/javaee/comptes/jpa/Compte.java" >fr/usmb/m2isc/.../jpa/Compte.class</a> (implantation de l'entité Compte (entité JPA))
   |-- <a href="CompteEjb/src/main/java/fr/usmb/m2isc/javaee/comptes/ejb/OperationBean.java" >fr/usmb/m2isc/.../ejb/OperationBean.class</a> (implantation de l'enterprise java bean Operation (bean session))
   |-- <a href="CompteEjb/src/main/java/fr/usmb/m2isc/javaee/comptes/ejb/Operation.java" >fr/usmb/m2isc/.../ejb/Operation.class</a> (interfaces de manipulation distante du bean session)
   |-- META-INF/MANIFEST.MF (java manifeste)
-  |-- META-INF/ejb-jar.xml (descripteur standard des enterprise java beans -- optionnnel dans les dernières versions de javaEE)
+  |-- META-INF/ejb-jar.xml (descripteur standard des enterprise java beans -- optionnel dans les dernières versions de javaEE)
   |-- <a href="CompteEjb/src/main/resources/META-INF/persistence.xml" >META-INF/persistence.xml</a> (descripteur standard pour JPA)
-  |-- META-INF/orm.xml (descripteur pour le mapping objet-relationel  -- absent ici)
+  |-- META-INF/orm.xml (descripteur pour le mapping objet-relationnel -- absent ici)
 </pre>
 
 Toutes les manipulations sur les objets persistants se font dans l'EJB en utilisant l'_entity manager_ correspondant à l'_unité de persistance_ des objets persistants manipulés. 
@@ -63,7 +63,7 @@ CompteWeb.war
                 |-- <a href="CompteWeb/src/main/java/fr/usmb/m2isc/javaee/comptes/web/ChercherComptesServlet.java" >fr/usmb/m2isc/javaee/comptes/web/ChercherComptesServlet.java.class</a>
                 |-- <a href="CompteWeb/src/main/java/fr/usmb/m2isc/javaee/comptes/web/AfficherCompteServlet.java" >fr/usmb/m2isc/javaee/comptes/web/AfficherCompteServlet.java.class</a>
   |-- WEB-INF/lib (librairies java utilisées dans les servlet)
-  |-- <a href="CompteWeb/src/main/webapp/WEB-INF/web.xml" >WEB-INF/web.xml</a> (descripteur standard de l'application Web -- optionnnel dans les dernières versions de javaEE)
+  |-- <a href="CompteWeb/src/main/webapp/WEB-INF/web.xml" >WEB-INF/web.xml</a> (descripteur standard de l'application Web -- optionnel dans les dernières versions de javaEE)
 </pre>
 
 Dans les _servlet_ on utilise l'annotation `@EJB` pour obtenir une référence de l'_EJB session_ :
@@ -104,12 +104,12 @@ puis on utilise la requête pour passer les objets à afficher à la _page JSP_ 
 
 ## Le tout est packagé ensemble dans une archive ear :
 
-Cette archive permet de regouper dans le même fichier l'ensemble des composants de l'application (ejb, app web, etc.).
+Cette archive permet de regrouper dans le même fichier l'ensemble des composants de l'application (ejb, app web, etc.).
 <pre>
 CompteEar.ear
   |-- CompteEjb.jar (archive contenant les EJBs)
   |-- CompteWeb.war (archive contenant le client Web)
-  |-- <a href="CompteEar/src/main/resources/META-INF/application.xml" >META-INF/application.xml</a> (descripteur standard de l'application -- optionnnel dans les dernières versions de javaEE)
+  |-- <a href="CompteEar/src/main/resources/META-INF/application.xml" >META-INF/application.xml</a> (descripteur standard de l'application -- optionnel dans les dernières versions de javaEE)
 </pre>
 
 ## Usage :
@@ -120,4 +120,4 @@ Cela devrait permettre la création de 3 sous-projets (ou modules), un pour la p
 La création des archives (CompteWeb.war, CompteEjb.jar, CompteEar.ear) peut se faire via gradle en appelant la tâche build sur le projet principal.
 
 Pour utiliser l'exemple il suffit de déployer le fichier CompteEar.ear sur un serveur JavaEE 7. 
-Le client Web est alors dans déployé dans _/CompteWeb_. 
+Le client Web est alors dans déployé dans _/CompteWeb_.
