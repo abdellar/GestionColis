@@ -4,7 +4,13 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
+@NamedQueries ({
+	@NamedQuery(name="all", query="SELECT c FROM Compte c"),
+	@NamedQuery(name="findWithNum", query="SELECT c FROM Compte c WHERE c.numero LIKE :partialNum ORDER BY c.numero ASC")
+})
 @Entity
 public class Compte implements Serializable {
 	
