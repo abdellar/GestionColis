@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Manipulation des comptes bancaires</title>
+	<link rel="stylesheet" type="text/css" href="css/base.css" >
+</head>
+<body>
+<h1>Manipulation des comptes bancaires</h1>
+	<h2>Créer un compte :</h2>
+	<form action="CreerCompteServlet" method="post">
+		numéro : <input type="text" name="numero">
+		valeur initiale : <input type="number" name ="depot">
+		<input type="submit" value="valider">
+	</form>
+	<h2>Visualiser un compte :</h2>
+	<form action="AfficherCompteServlet" method="post">
+		numéro : <input type="text" name="numero">
+		<input type="submit" value="valider">
+	</form>
+	<h2>Créditer un compte :</h2>
+	<form action="CrediterCompteServlet" method="post">
+		numéro : <input type="text" name="numero">
+		dépot : <input type="number" name ="depot">
+		<input type="submit" value="crediter">
+	</form>
+</body>
+</html>
