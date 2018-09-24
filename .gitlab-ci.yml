@@ -1,0 +1,17 @@
+image: gradle:4.10-jdk7
+
+stages:
+  - build
+  
+build:
+  stage: build
+  script:
+    - gradle build
+  artifacts:
+    paths:
+      - CompteEar/build/libs
+      - CompteEjb/build/libs
+      - CompteWeb/build/libs
+  only:
+    - master
+    - develop
