@@ -25,7 +25,7 @@ CompteEjb.jar (ejb-jar)
   |-- <a href="CompteEjb/src/main/java/fr/usmb/m2isc/javaee/comptes/ejb/OperationBean.java" >fr/usmb/m2isc/.../ejb/OperationBean.class</a> (implantation de l'enterprise java bean Operation (bean session))
   |-- <a href="CompteEjb/src/main/java/fr/usmb/m2isc/javaee/comptes/ejb/Operation.java" >fr/usmb/m2isc/.../ejb/Operation.class</a> (interfaces de manipulation distante du bean session)
   |-- META-INF/MANIFEST.MF (java manifeste)
-  |-- META-INF/ejb-jar.xml (descripteur standard des enterprise java beans -- optionnel dans les dernières versions de javaEE)
+  |-- <a href="CompteEjb/src/main/resources/META-INF/ejb-jar.xml" >META-INF/ejb-jar.xml</a> (descripteur standard des enterprise java beans -- optionnel dans les dernières versions de javaEE)
   |-- <a href="CompteEjb/src/main/resources/META-INF/persistence.xml" >META-INF/persistence.xml</a> (descripteur standard pour JPA)
   |-- META-INF/orm.xml (descripteur pour le mapping objet-relationnel -- absent ici)
 </pre>
