@@ -95,8 +95,8 @@ CompteWeb.war
                 |-- <a href="CompteWeb/src/main/java/fr/usmb/m2isc/javaee/comptes/web/CrediterCompteServlet.java" >fr/usmb/m2isc/javaee/comptes/web/CrediterCompteServlet.class</a>
                 |-- <a href="CompteWeb/src/main/java/fr/usmb/m2isc/javaee/comptes/web/DebiterCompteServlet.java" >fr/usmb/m2isc/javaee/comptes/web/DebiterCompteServlet.class</a>
                 |-- <a href="CompteWeb/src/main/java/fr/usmb/m2isc/javaee/comptes/web/TransfererServlet.java" >fr/usmb/m2isc/javaee/comptes/web/TransfererServlet.class</a>
-                |-- <a href="CompteWeb/src/main/java/fr/usmb/m2isc/javaee/comptes/web/ChercherComptesServlet.java" >fr/usmb/m2isc/javaee/comptes/web/ChercherComptesServlet.java.class</a>
-                |-- <a href="CompteWeb/src/main/java/fr/usmb/m2isc/javaee/comptes/web/AfficherCompteServlet.java" >fr/usmb/m2isc/javaee/comptes/web/AfficherCompteServlet.java.class</a>
+                |-- <a href="CompteWeb/src/main/java/fr/usmb/m2isc/javaee/comptes/web/ChercherComptesServlet.java" >fr/usmb/m2isc/javaee/comptes/web/ChercherComptesServlet.class</a>
+                |-- <a href="CompteWeb/src/main/java/fr/usmb/m2isc/javaee/comptes/web/AfficherCompteServlet.java" >fr/usmb/m2isc/javaee/comptes/web/AfficherCompteServlet.class</a>
   |-- WEB-INF/lib (librairies java utilisées dans les servlet)
   |-- <a href="CompteWeb/src/main/webapp/WEB-INF/web.xml" >WEB-INF/web.xml</a> (descripteur standard de l'application Web -- optionnel dans les dernières versions de javaEE)
 </pre>
