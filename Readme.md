@@ -43,6 +43,41 @@ public class OperationBean implements Operation {
 	private EntityManager em;
 ```
 
+Pour les opérations de recherche de comptes, sur l'entité JPA ont été ajoutés deux requetes nommées
+
+```java
+@NamedQueries ({
+	@NamedQuery(name="all", query="SELECT c FROM Compte c"),
+	@NamedQuery(name="findWithNum", query="SELECT c FROM Compte c WHERE c.numero LIKE :partialNum ORDER BY c.numero ASC")
+})
+@Entity
+public class Compte implements Serializable {
+	...
+```
+
+utilisées dans l'EJB session pour obtenir soit la liste complete des comptes, soit une partie d'entre eux :
+
+```
+@Stateless
+@Remote
+public class OperationBean implements Operation {	
+	...	
+	@Override
+	public List<Compte> findAllComptes() {
+		Query req = em.createNamedQuery("all");
+		return req.getResultList();
+	}
+
+	@Override
+	public List<Compte> findComptes(String partialNumber) {
+		Query req = em.createNamedQuery("findWithNum");
+		req.setParameter("partialNum", partialNumber);
+		return req.getResultList();
+	}	
+	...
+```
+
+ 
 ## L'application WEB est dans un fichier d'archive war :
 
 Ce client WEB permet de réaliser l'ensemble des opérations sur les comptes : création, débit, crédit, transfert, recherche ou visualisation.
