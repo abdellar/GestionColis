@@ -1,5 +1,10 @@
 package fr.usmb.m2isc.javaee.colis.ejb;
 
+import fr.usmb.m2isc.javaee.colis.jpa.Acheminement;
+import fr.usmb.m2isc.javaee.colis.jpa.Colis;
+import fr.usmb.m2isc.javaee.colis.jpa.Etat;
+
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.EJBException;
@@ -11,59 +16,45 @@ import javax.persistence.Query;
 
 @Stateless
 @Remote
-public class OperationBean implements Operation {
+public class ColisOperationBean implements ColisOperation {
 	
 	@PersistenceContext
 	private EntityManager em;
 	
-	public OperationBean() {
-	}
-	
+	public ColisOperationBean() {}
+
 	@Override
-	public Compte creerCompte(String number, double depot) {
-		Compte cpt = new Compte(number, depot);
-		em.persist(cpt);
-		return cpt;
-	}
-	
-	@Override
-	public Compte getCompte(String number) {
-		return em.find(Compte.class, number);
+	public Colis creeColis(double poids, double valeur, String origine, String destination) {
+		Colis colis = new Colis(poids,valeur,origine,destination);
+		em.persist(colis);
+		return colis;
 	}
 
 	@Override
-	public List<Compte> findAllComptes() {
-		Query req = em.createNamedQuery("all");
-		return req.getResultList();
+	public Colis getColis(int unique_id) {
+		return em.find(Colis.class, unique_id);
 	}
 
 	@Override
-	public List<Compte> findComptes(String partialNumber) {
-		Query req = em.createNamedQuery("findWithNum");
-		req.setParameter("partialNum", partialNumber);
-		return req.getResultList();
+	public List<Colis> getAllColis() {
+		Query requete = em.createNamedQuery("all");
+		return requete.getResultList();
 	}
 
 	@Override
-	public Compte crediter(String number, double val) {
-		Compte cpt = em.find(Compte.class, number);
-		cpt.setSolde(cpt.getSolde() + val);
-		if (val < 0 ) throw new EJBException("depot negatif");
-		return cpt;
+	public void updateColis(Colis colis) {
+		em.merge(colis);
 	}
 
 	@Override
-	public Compte debiter(String number, double val) {
-		Compte cpt = em.find(Compte.class, number);
-		cpt.setSolde(cpt.getSolde() - val);
-		if (val < 0 ) throw new EJBException("retrait negatif");
-		return cpt;
+	public String suivreColis(Colis colis) {
+		return colis.getAcheminements().get(colis.getAcheminements().size()).getEtat().toString();
 	}
 
-	@Override
-	public void transferer(String numCpt1, double val, String numCpt2) {
-		crediter(numCpt2, val);
-		debiter(numCpt1, val);
-		if (val < 0 ) throw new EJBException("retrait negatif");
+	public Acheminement creeAcheminement(int latitude, int longitude, String emplacement, Etat etat, Date date, Colis colis) {
+		Acheminement acheminement = new Acheminement(latitude,longitude,emplacement,etat,date,colis);
+		em.persist(acheminement);
+		return acheminement;
 	}
+
 }

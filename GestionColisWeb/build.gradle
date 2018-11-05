@@ -24,6 +24,6 @@ targetCompatibility = 1.7
 dependencies {
     providedCompile group: 'javax', name: 'javaee-web-api', version: '7.0'
     providedCompile group: 'javax.servlet', name: 'jstl', version: '1.2'
-    providedCompile project(':CompteEjb')
+    providedCompile project(':GestionColisEjb')
 }
 

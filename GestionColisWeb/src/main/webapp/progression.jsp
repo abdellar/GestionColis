@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Suivi</title>
+    <title>Progression</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/base.css" >
 </head>
@@ -27,10 +27,10 @@
                     <a class="nav-link" href="Enregistrement">Enregistrement</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="Progression">Progression</a>
+                    <a class="nav-link" href="Progression">Progression <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Suivi">Suivi <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="Suivi">Suivi</a>
                 </li>
             </ul>
             <form class="form-inline mt-2 mt-md-0">
@@ -53,5 +53,4 @@
 
 </body>
 </html>
-
 

@@ -15,15 +15,15 @@ include 'api'
 include 'services:webservice'
 */
 
-rootProject.name = 'ExempleCpts'
+rootProject.name = 'GestionColis'
 
-include ':CompteEjb'
-include ':CompteWeb'
-include ':CompteEar'
+include ':GestionColisEjb'
+include ':GestionColisWeb'
+include ':GestionColisEar'
 //include ':CompteEjb'
 //include ':CompteWeb'
 //include ':CompteEar'
 
-project(':CompteEjb').projectDir = "$rootDir/CompteEjb" as File
-project(':CompteWeb').projectDir = "$rootDir/CompteWeb" as File
-project(':CompteEar').projectDir = "$rootDir/CompteEar" as File
+project(':GestionColisEjb').projectDir = "$rootDir/GestionColisEjb" as File
+project(':GestionColisWeb').projectDir = "$rootDir/GestionColisWeb" as File
+project(':GestionColisEar').projectDir = "$rootDir/GestionColisEar" as File

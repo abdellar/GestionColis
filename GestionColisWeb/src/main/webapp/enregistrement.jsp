@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Suivi</title>
+    <title>Enregistrement Colis</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/base.css" >
 </head>
@@ -23,14 +23,14 @@
         <a class="navbar-brand" href="home">Gestion Colis</a>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="Enregistrement">Enregistrement</a>
-                </li>
                 <li class="nav-item active">
+                    <a class="nav-link" href="Enregistrement">Enregistrement <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="Progression">Progression</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Suivi">Suivi <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="Suivi">Suivi</a>
                 </li>
             </ul>
             <form class="form-inline mt-2 mt-md-0">
@@ -42,7 +42,18 @@
 </header>
 
 <main role="main" class="container">
-
+    <div class="container">
+        <h2>Enregistrement d'un nouveau colis</h2>
+        <form action="Enregistrement" method="post" class="form-group">
+            Poids (kg): <input type="text" name="poids" placeholder="ex: 10" class="form-control">
+            Valeur (euro): <input type="text" name="valeur" placeholder="ex: 20" class="form-control">
+            Origine : <input type="text" name="origine" placeholder="ex: marrakech" class="form-control">
+            Destination: <input type="text" name="destination" placeholder="ex: chambéry" class="form-control">
+            <br/>
+            <br/>
+            <input class="btn btn-success" type="submit" value="Enregistrer Colis">
+        </form>
+    </div>
 </main>
 
 <footer class="footer">
@@ -53,5 +64,3 @@
 
 </body>
 </html>
-
-
