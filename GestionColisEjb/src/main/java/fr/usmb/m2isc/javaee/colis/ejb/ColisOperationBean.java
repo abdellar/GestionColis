@@ -1,4 +1,4 @@
-package fr.usmb.m2isc.javaee.comptes.ejb;
+package fr.usmb.m2isc.javaee.colis.ejb;
 
 import java.util.List;
 
@@ -8,8 +8,6 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-
-import fr.usmb.m2isc.javaee.comptes.jpa.Compte;
 
 @Stateless
 @Remote
