@@ -26,10 +26,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="Enregistrement">Enregistrement</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="Progression">Progression</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="Suivi">Suivi <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
@@ -42,6 +42,35 @@
 </header>
 
 <main role="main" class="container">
+
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Poids</th>
+            <th>Valeur</th>
+            <th>Origine</th>
+            <th>Destination</th>
+            <th></th>
+        </tr>
+        </thead>
+        <c:forEach items="${colisList}" var="colis">
+            <tr>
+                <td>${colis.unique_id}</td>
+                <th>${colis.poids}</th>
+                <td><fmt:formatNumber type="currency" currencySymbol="&euro;"
+                                      value="${colis.valeur}"></fmt:formatNumber></td>
+                <td>${colis.origine}</td>
+                <td>${colis.destination}</td>
+                <td>
+                    <form action="Progression" method="get">
+                        <input name="unique_id" type="hidden" value="${colis.unique_id}">
+                        <button class="btn btn-primary">Progression</button>
+                    </form>
+                </td>
+            </tr>
+        </c:forEach>
+    </table>
 
 </main>
 

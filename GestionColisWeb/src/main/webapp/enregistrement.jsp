@@ -50,7 +50,6 @@
             Origine : <input type="text" name="origine" placeholder="ex: marrakech" class="form-control">
             Destination: <input type="text" name="destination" placeholder="ex: chambéry" class="form-control">
             <br/>
-            <br/>
             <input class="btn btn-success" type="submit" value="Enregistrer Colis">
         </form>
     </div>

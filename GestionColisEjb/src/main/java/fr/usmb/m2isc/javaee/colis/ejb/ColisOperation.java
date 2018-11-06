@@ -21,4 +21,6 @@ public interface ColisOperation {
 
 	Acheminement creeAcheminement(int latitude, int longitude, String emplacement, Etat etat, Date date, Colis colis);
 
+	void addAcheminement(Colis colis,Acheminement acheminement);
+
 }

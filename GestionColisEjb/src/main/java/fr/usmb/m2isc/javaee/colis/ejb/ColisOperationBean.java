@@ -7,7 +7,6 @@ import fr.usmb.m2isc.javaee.colis.jpa.Etat;
 import java.util.Date;
 import java.util.List;
 
-import javax.ejb.EJBException;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -56,5 +55,11 @@ public class ColisOperationBean implements ColisOperation {
 		em.persist(acheminement);
 		return acheminement;
 	}
+
+	public void addAcheminement(Colis colis,Acheminement acheminement) {
+		colis.addAcheminement(acheminement);
+		em.merge(colis);
+	}
+
 
 }

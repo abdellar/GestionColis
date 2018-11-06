@@ -43,6 +43,72 @@
 
 <main role="main" class="container">
 
+    <c:choose>
+        <c:when test = "${colis == null}">
+            <h3>Entrer le code colis</h3>
+            <form action="Progression" method="get" class="form-group">
+                <input name="unique_id" placeholder="Search Colis" type="text" >
+                <input class="btn btn-success" type="submit" class="form-control">
+            </form>
+        </c:when>
+        <c:otherwise>
+            <h3>Progression du colis</h3>
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Poids</th>
+                    <th>Valeur</th>
+                    <th>Origine</th>
+                    <th>Destination</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td>${colis.unique_id}</td>
+                    <th>${colis.poids}</th>
+                    <td><fmt:formatNumber type="currency" currencySymbol="&euro;"
+                                          value="${colis.valeur}"></fmt:formatNumber></td>
+                    <td>${colis.origine}</td>
+                    <td>${colis.destination}</td>
+                </tr>
+            </table>
+            <h3>Les acheminements du colis</h3>
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Date</th>
+                    <th>Emplacement</th>
+                    <th>Etat</th>
+                    <th>latitude</th>
+                    <th>longitude</th>
+                </tr>
+                </thead>
+                <c:forEach items="${colis.acheminements}" var="acheminements">
+                    <tr>
+                        <td>${acheminements.date}</td>
+                        <td>${acheminements.emplacement}</td>
+                        <td>${acheminements.etat.toString()}</td>
+                        <td>${acheminements.latitude}</td>
+                        <td>${acheminements.longitude}</td>
+                    </tr>
+                </c:forEach>
+            </table>
+            <h3>Ajouter prochaine acheminement</h3>
+            <form action="Progression" method="post" class="form-group">
+                <input name="unique_id" type="hidden" value="${colis.unique_id}">
+                Emplacement : <input type="text" name="emplacement" class="form-control">
+                Etat :
+                <select name="etat" class="form-control">
+                    <c:forEach items="${etats}" var="etats">
+                        <option>${etats.toString()}</option>
+                    </c:forEach>
+                </select>
+                <br/>
+                <input class="btn btn-primary" type="submit" value="Ajouter Emplacement">
+            </form>
+        </c:otherwise>
+    </c:choose>
+
 </main>
 
 <footer class="footer">

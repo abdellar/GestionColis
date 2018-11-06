@@ -75,4 +75,9 @@ public class Colis implements Serializable {
   public List<Acheminement> getAcheminements() { return acheminements; }
 
   public void setAcheminements(List<Acheminement> acheminements) { this.acheminements = acheminements; }
+
+  public void addAcheminement(Acheminement acheminement) {
+    this.acheminements.add(acheminement);
+  }
+
 }
