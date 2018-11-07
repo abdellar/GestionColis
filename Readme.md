@@ -56,5 +56,5 @@ l'application possède trois servlets :
 ![Alt create](Suivi.png)
 3.
 ![Alt info](Progression.png)
-
+Quand le colis est livré on ne peut plus le modifier
 ![Alt delivered](ProgressionBis.png)
